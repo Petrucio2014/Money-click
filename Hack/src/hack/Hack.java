@@ -63,14 +63,36 @@ public class Hack {
     public static void main(String[] args) throws AWTException {
         Hack comando = new Hack();
         Robot robot = new Robot();
-        robot.delay(10000);
+        robot.mouseMove(641,679);
+        robot.delay(500);
         for (int q = 0;;) {
             System.out.println(robot.getPixelColor(809, 464));
             if (robot.getPixelColor(809, 464).equals(new Color(243, 240, 204))) {
                 robot.mouseMove(809, 464);
                 comando.click(51);
-
-            }
+                robot.delay(500);
+                if(robot.getPixelColor(911, 470).equals(new Color(61,61,61))){
+                    robot.mouseMove(911, 470);
+                    comando.click(1);
+                }                                
+                //comando.alternador(3); // se lembrar  quantidade de janelas ativas            
+            } else if(robot.getPixelColor(789, 453).equals(new Color(44, 44, 44))){
+                robot.mouseMove(789, 453);
+                comando.click(1);
+                robot.delay(500);
+                System.out.println("aqui");
+                System.out.println(robot.getPixelColor(641, 679));
+                System.out.println("aqui");
+                if(robot.getPixelColor(641,679).equals(new Color(241, 82, 73))){
+                    robot.mouseMove(641,679);
+                    System.out.println("funfou?");
+                    System.out.println("funfou?");
+                    System.out.println("funfou?");
+                    System.out.println("funfou?");
+                    comando.click(1);
+                } else robot.delay(500);
+                //comando.alternador(3); // se lembrar  da quantidade de janelas ativas     
+            } // implementar o ultimo else
 
         }
     }

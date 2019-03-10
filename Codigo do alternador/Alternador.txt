@@ -1,0 +1,43 @@
+public class Euro {
+
+    Robot robot;
+    int cont = 0;
+    Boolean ativar = false;
+    public void alternador(int q) {
+        try {
+            robot = new Robot();
+        } catch (AWTException ex) {
+            Logger.getLogger(Euro.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        robot.keyPress(KeyEvent.VK_ALT);
+        //robot.keyPress(KeyEvent.VK_TAB);
+        //robot.keyRelease(KeyEvent.VK_TAB);
+        for (int y = 0; y < (cont + 2); y++) {
+            robot.keyPress(KeyEvent.VK_TAB);
+            robot.keyRelease(KeyEvent.VK_TAB);
+            robot.delay(100);
+        }
+        robot.keyRelease(KeyEvent.VK_ALT);
+        robot.delay(2000);
+        if (cont+1 == (q-2) && ativar == true) {
+            cont = 0;
+            ativar = false;
+            System.out.println("depois");
+        } else if(cont+1==(q-2)) {
+            ativar = true;
+            System.out.println("antes");
+        }
+        
+        else cont++;
+    }
+
+public static void main(String[] args) throws AWTException {
+    Euro euro = new Euro();
+    Robot robot = new Robot();
+    robot.delay(3000);
+    for(int x = 0; x<3;x++){
+            euro.alternador(4);
+    }
+    
+}
+}

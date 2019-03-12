@@ -7,9 +7,10 @@ package hack;
 
 import java.awt.AWTException;
 import java.awt.Color;
+import java.awt.MouseInfo;
+import java.awt.Point;
+import java.awt.PointerInfo;
 import java.awt.Robot;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -105,6 +106,9 @@ public class Tela extends javax.swing.JFrame {
 
     private void botaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoMouseClicked
         // TODO add your handling code here:
+        mudar();
+    }//GEN-LAST:event_botaoMouseClicked
+    public void mudar(){
         on=!on;
         if(on){
             fundo.setBackground(Color.green);
@@ -114,12 +118,11 @@ public class Tela extends javax.swing.JFrame {
             botao.setText("Ligar");
             
         }
-    }//GEN-LAST:event_botaoMouseClicked
-
+    }
     /**
      * @param args the command line arguments   
      */
-    public static void main(String args[])throws AWTException {     
+    public  static void main(String args[])throws AWTException {     
         
             new Tela().setVisible(true);
             
@@ -127,10 +130,20 @@ public class Tela extends javax.swing.JFrame {
             Propaganda prop = new Propaganda();
             
             robot.delay(5000);
-            for(;;)
-                if(on)
-                    prop.checar();
-            
+            for(;;){
+                if(on){
+                    PointerInfo a = MouseInfo.getPointerInfo();
+                    Point b = a.getLocation();
+                    int y = (int) b.y;
+                    if(y>45&&y<830){
+                        prop.checar();
+                    }
+                    else{
+                        on=!on;
+                    }
+                    
+                }
+            }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

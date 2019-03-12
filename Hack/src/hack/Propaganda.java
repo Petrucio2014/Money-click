@@ -53,6 +53,7 @@ public class Propaganda {
     
     private boolean compararCor(int x, int y, Color cor){
         boolean found = false;
+       // if(robot.getPixelColor(y, y).equals(cor)) found= true;
         for(int i=-margem;i<=margem;i++){
             
             for(int j=-margem;j<=margem &&x+i >=0 && x+i < 1600;j++){

@@ -23,7 +23,7 @@ public class Alternador {
     public void alternador() {
         
         altTab();
-        robot.delay(2500);
+        robot.delay(500);
         
     }
 

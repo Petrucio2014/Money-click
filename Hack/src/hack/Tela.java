@@ -144,7 +144,7 @@ public class Tela extends javax.swing.JFrame {
                         System.out.println("e aqui?");
                     }
                     
-                }
+                } else robot.delay(100);
                 
             }
     }

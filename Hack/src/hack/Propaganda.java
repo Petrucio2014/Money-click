@@ -58,9 +58,16 @@ public class Propaganda {
 
     private boolean compararCor(int x, int y, Color cor) {
         boolean found = false;
-        if (robot.getPixelColor(y, y).equals(cor)) {
+        int R = cor.getRed();
+        int G = cor.getGreen();
+        int B = cor.getBlue();
+        int Rc = robot.getPixelColor(x, y).getRed();
+        int Gc = robot.getPixelColor(x, y).getGreen();
+        int Bc = robot.getPixelColor(x, y).getBlue();
+        
+        if (Math.abs(R-Rc)<=10&&Math.abs(G-Gc)<=10&&Math.abs(B-Bc)<=10) {
             found = true;
-        } else {
+        }/* else {
             for (int i = -margem; i <= margem; i++) {
 
                 for (int j = -margem; j <= margem && x + i >= 0 && x + i < 1600; j++) {
@@ -75,7 +82,7 @@ public class Propaganda {
                     break;
                 }
             }
-        }
+        }*/
         return found;
     }
 
@@ -115,7 +122,7 @@ public class Propaganda {
                     clicar(921, 467);
                     break;
                 } else if (compararCor(927, 470, cinzinha)) {
-                    clicar(927, 470);
+                    clicar(940, 467);
                     break;
                 } else if (compararCor(809, 464, able)) {
                     break;

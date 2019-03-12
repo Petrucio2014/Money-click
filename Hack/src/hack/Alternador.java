@@ -23,7 +23,7 @@ public class Alternador {
     public void alternador() {
         
         altTab();
-        robot.delay(2000);
+        robot.delay(2500);
         
     }
 
@@ -36,7 +36,7 @@ public class Alternador {
 
             robot.keyPress(KeyEvent.VK_TAB);
             robot.keyRelease(KeyEvent.VK_TAB);
-            robot.delay(100);
+            robot.delay(50);
         }
         
         robot.keyRelease(KeyEvent.VK_ALT);

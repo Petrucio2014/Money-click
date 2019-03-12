@@ -21,11 +21,11 @@ public class Tela extends javax.swing.JFrame {
     /**
      * Creates new form Tela
      */
-    private static boolean on;
+    private static boolean onp;
     
     public Tela() {
         initComponents();
-        on = false;
+        onp = false;
     }
 
     /**
@@ -109,8 +109,8 @@ public class Tela extends javax.swing.JFrame {
         mudar();
     }//GEN-LAST:event_botaoMouseClicked
     public void mudar(){
-        on=!on;
-        if(on){
+        onp=!onp;
+        if(onp){
             fundo.setBackground(Color.green);
             botao.setText("Desligar");
         }else{
@@ -128,21 +128,24 @@ public class Tela extends javax.swing.JFrame {
             
             Robot robot = new Robot();
             Propaganda prop = new Propaganda();
-            
-            robot.delay(5000);
             for(;;){
-                if(on){
+   
+                if(onp){
+                    System.out.println("o primeiro foi");
                     PointerInfo a = MouseInfo.getPointerInfo();
                     Point b = a.getLocation();
                     int y = (int) b.y;
                     if(y>45&&y<830){
+                        System.out.println("ta funcionando?");
                         prop.checar();
                     }
                     else{
-                        on=!on;
+                        onp=!onp;
+                        System.out.println("e aqui?");
                     }
                     
                 }
+                
             }
     }
 

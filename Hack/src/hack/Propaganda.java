@@ -42,7 +42,7 @@ public class Propaganda {
         fecharA = new Color(245, 245, 245);
         amarelo = new Color(244, 184, 68);
         robot = new Robot();
-        alt = new Alternador(2); // Quantidade de processos ativos
+        alt = new Alternador(4); // Quantidade de processos ativos
     }
     
     public void checar() throws AWTException{
@@ -57,8 +57,9 @@ public class Propaganda {
         for(int i=-margem;i<=margem;i++){
             
             for(int j=-margem;j<=margem &&x+i >=0 && x+i < 1600;j++){
-            
+                System.out.println("como estamos"+robot.getPixelColor(x+i, y+j));
                 if(y+j>=0 && y+j<900 && robot.getPixelColor(x+i, y+j).equals(cor)){
+                    System.out.println("deu certo?");
                    found=true;
                    break;
                 }
@@ -78,7 +79,7 @@ public class Propaganda {
     private void clicar(){
         
         robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
-        robot.delay(20);
+        robot.delay(100);
         robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
         
     }
@@ -98,15 +99,16 @@ public class Propaganda {
            
            if(compararCor(911, 470,cinzinha))
               clicar(911, 470);
+           else if(compararCor(927, 470,cinzinha))
+               clicar(927, 470);
            
         } else if(compararCor(789, 453,cinza)){
             clicar(789,453);
             robot.delay(500);
             
-            if(compararCor(641,679,idk)){
+            if(compararCor(641,679,idk))
                 clicar(641,679);
-            } else
-                robot.delay(500);
+             
         }else{
             fechar();
         }
@@ -117,8 +119,7 @@ public class Propaganda {
     private void fechar(){
         
         if(compararCor(822, 460, branco))
-            clicar(910, 487);
-        
+            clicar(910, 487);        
         if(compararCor(1362, 137, branco))
             clicar(1362, 137);
         else if(compararCor(1351, 150, branco))
@@ -126,13 +127,9 @@ public class Propaganda {
         else if(compararCor(1363, 138,fechar))
             clicar(1363, 138);
         else 
-            alt.alternador();
+            alt.alternador();           
         
-
-        
-        
-    }
-    
+    }   
         
 }
     
